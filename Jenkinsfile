@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     // Create necessary directories
-                    sh 'mkdir -p "/var/www/$PROJECT_NAME/staging/{releases,deploy,current}"'
+                    sh 'mkdir -p /var/www/$PROJECT_NAME/staging/{releases,deploy,current}'
 
                     // Testing Stage
                     sh '''
