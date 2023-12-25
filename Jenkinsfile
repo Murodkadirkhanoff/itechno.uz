@@ -12,9 +12,10 @@ pipeline {
                 script {
                     // Create necessary directories
                     sh 'mkdir -p /var/www/$PROJECT_NAME/staging/{releases,deploy,current}'
-
+                    
                     // Testing Stage
                     sh '''
+                    ls /var/www/$PROJECT_NAME/staging/
                     pwd
                     ls -a
                     composer install
