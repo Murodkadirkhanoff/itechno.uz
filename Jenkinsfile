@@ -4,7 +4,6 @@ pipeline {
     environment {
         PROJECT_NAME = "itechno"
         PROJECT_BUILD_ZIP = "staging.itechno-build.tar.gz"
-        BUILD_NUMBER = sh(returnStdout: true, script: 'date "+%Y%m%d%H%M%S"').trim()
     }
 
     stages {
@@ -37,9 +36,12 @@ pipeline {
                     cd ..
                     tar -czvf "$PROJECT_BUILD_ZIP" "$PROJECT_NAME/" --exclude="$PROJECT_NAME/*.git*" "$PROJECT_NAME/"
                     
-                    ls /var/www/$PROJECT_NAME/staging/releases/
-                    ls /var/www/$PROJECT_NAME/staging/
+                    ls -a
                     ls /var/www/$PROJECT_NAME/
+                    ls /var/www/$PROJECT_NAME/staging/
+                    ls /var/www/$PROJECT_NAME/staging/releases/
+                    
+                    
                     mv "$PROJECT_BUILD_ZIP" "/var/www/$PROJECT_NAME/staging/releases/"
 
                     cd "/var/www/$PROJECT_NAME/staging/releases/"
