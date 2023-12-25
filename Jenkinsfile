@@ -36,6 +36,10 @@ pipeline {
                     pwd
                     cd ..
                     tar -czvf "$PROJECT_BUILD_ZIP" "$PROJECT_NAME/" --exclude="$PROJECT_NAME/*.git*" "$PROJECT_NAME/"
+                    
+                    ls /var/www/$PROJECT_NAME/staging/releases/
+                    ls /var/www/$PROJECT_NAME/staging/
+                    ls /var/www/$PROJECT_NAME/
                     mv "$PROJECT_BUILD_ZIP" "/var/www/$PROJECT_NAME/staging/releases/"
 
                     cd "/var/www/$PROJECT_NAME/staging/releases/"
